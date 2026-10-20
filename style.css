@@ -1,0 +1,845 @@
+:root {
+    --primary: #1e3a8a;
+    --primary-dark: #172554;
+    --primary-light: #eff6ff;
+    --secondary: #0f766e;
+    --secondary-light: #f0fdfa;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --accent: #d97706;
+    --accent-light: #fffbeb;
+    --success: #15803d;
+    --success-light: #f0fdf4;
+    --danger: #b91c1c;
+    --danger-light: #fef2f2;
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #cbd5e1;
+    --code-bg: #0f172a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding-bottom: 60px;
+}
+
+/* Official Top Hero Header */
+.school-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #0f766e 100%);
+    color: white;
+    padding: 28px 20px;
+    border-bottom: 5px solid #fbbf24;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+}
+
+.hero-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.school-branding {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.school-emblem {
+    width: 68px;
+    height: 68px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid #fbbf24;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.1rem;
+    flex-shrink: 0;
+}
+
+.school-text h1 {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.school-text p {
+    font-size: 1rem;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.teacher-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 12px 22px;
+    border-radius: 14px;
+    text-align: right;
+}
+
+.teacher-card .teacher-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fde047;
+}
+
+.teacher-card .grade-badge {
+    font-size: 0.95rem;
+    color: #f8fafc;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* Navigation & Action Bar */
+.nav-wrapper {
+    max-width: 1050px;
+    margin: -22px auto 24px auto;
+    padding: 0 16px;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-bar {
+    background: white;
+    border-radius: 14px;
+    padding: 12px 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tabs-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tab-btn {
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background: #e2e8f0;
+}
+
+.tab-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.actions-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.btn {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 8px 15px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-print {
+    background: #0f172a;
+    color: white;
+}
+
+.btn-print:hover {
+    background: #334155;
+}
+
+.btn-word {
+    background: #1d4ed8;
+    color: white;
+}
+
+.btn-word:hover {
+    background: #1e40af;
+}
+
+.btn-success {
+    background: var(--success);
+    color: white;
+}
+
+.btn-success:hover {
+    background: #166534;
+}
+
+.btn-outline {
+    background: white;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary-light);
+}
+
+/* Main Content Container */
+.main-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Word Downloads Banner */
+.downloads-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.downloads-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.downloads-header h2 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+.download-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 0.88rem;
+    transition: all 0.2s;
+}
+
+.download-item:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.download-item.featured {
+    background: #eff6ff;
+    border: 2px solid #2563eb;
+    color: #1e3a8a;
+}
+
+/* Worksheet Card */
+.worksheet {
+    background: white;
+    border-radius: 16px;
+    padding: 34px 38px;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.worksheet.hidden-tab {
+    display: none;
+}
+
+.worksheet::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--primary), #3b82f6);
+}
+
+.worksheet.ws-2::before {
+    background: linear-gradient(90deg, var(--secondary), #14b8a6);
+}
+
+.worksheet.ws-3::before {
+    background: linear-gradient(90deg, var(--purple), #a855f7);
+}
+
+.worksheet.ws-key::before {
+    background: linear-gradient(90deg, var(--success), #22c55e);
+}
+
+/* Official Worksheet Print Header */
+.ws-official-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 10px 18px;
+    margin-bottom: 18px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1e293b;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ws-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px dashed var(--border);
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.ws-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.ws-1 .ws-badge { background: var(--primary-light); color: var(--primary); }
+.ws-2 .ws-badge { background: var(--secondary-light); color: var(--secondary); }
+.ws-3 .ws-badge { background: var(--purple-light); color: var(--purple); }
+.ws-key .ws-badge { background: var(--success-light); color: var(--success); }
+
+.ws-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.student-meta {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 8px 18px;
+    background: #f8fafc;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.88rem;
+}
+
+.student-meta input {
+    font-family: 'Cairo', sans-serif;
+    border: none;
+    border-bottom: 1.5px dashed #64748b;
+    background: transparent;
+    padding: 2px 6px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--primary);
+    width: 140px;
+}
+
+.student-meta input:focus {
+    outline: none;
+    border-bottom-color: var(--primary);
+}
+
+/* Concept Tags */
+.concepts-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.concepts-label {
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.tag {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    padding: 3px 12px;
+    border-radius: 7px;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.tag code {
+    font-family: 'Fira Code', monospace;
+    color: #be123c;
+    direction: ltr;
+    display: inline-block;
+}
+
+/* Scenario Box */
+.scenario-box {
+    background: var(--primary-light);
+    border-right: 5px solid var(--primary);
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+}
+
+.ws-2 .scenario-box {
+    background: var(--secondary-light);
+    border-right-color: var(--secondary);
+}
+
+.ws-3 .scenario-box {
+    background: var(--purple-light);
+    border-right-color: var(--purple);
+}
+
+.scenario-title {
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.section-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 22px 0 12px 0;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 6px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Steps List */
+.steps-list {
+    list-style: none;
+    counter-reset: step-counter;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.steps-list li {
+    counter-increment: step-counter;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 11px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.steps-list li::before {
+    content: counter(step-counter);
+    background: var(--primary);
+    color: white;
+    font-weight: 800;
+    font-size: 0.85rem;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.ws-2 .steps-list li::before { background: var(--secondary); }
+.ws-3 .steps-list li::before { background: var(--purple); }
+
+.inline-code {
+    font-family: 'Fira Code', monospace;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 1px 7px;
+    border-radius: 5px;
+    font-size: 0.87em;
+    direction: ltr;
+    display: inline-block;
+    border: 1px solid #cbd5e1;
+}
+
+/* Two Columns */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+@media (max-width: 820px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hints-box {
+    background: var(--accent-light);
+    border: 1px solid #fcd34d;
+    border-right: 5px solid var(--accent);
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.hints-title {
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 10px;
+}
+
+.hints-list {
+    padding-right: 20px;
+    font-size: 0.92rem;
+    color: #78350f;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Interactive Simulator & Terminal */
+.terminal-box {
+    background: var(--code-bg);
+    color: #f8fafc;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background: #1e293b;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #334155;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.r { background: #ef4444; }
+.dot.y { background: #f59e0b; }
+.dot.g { background: #22c55e; }
+
+.terminal-body {
+    padding: 14px 16px;
+    font-family: 'Cairo', 'Fira Code', monospace;
+    line-height: 1.8;
+    direction: rtl;
+}
+
+.user-input {
+    color: #38bdf8;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.sim-controls {
+    background: #1e293b;
+    padding: 10px 14px;
+    border-top: 1px solid #334155;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.sim-controls input {
+    background: #0f172a;
+    border: 1px solid #475569;
+    color: #38bdf8;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.82rem;
+    width: 90px;
+}
+
+.sim-btn {
+    background: #22c55e;
+    color: #052e16;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+
+.sim-btn:hover {
+    background: #4ade80;
+}
+
+/* Interactive Code Fill-in Workspace */
+.code-workspace {
+    margin-top: 10px;
+    background: #f8fafc;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 18px 22px;
+    direction: ltr;
+    text-align: left;
+    font-family: 'Fira Code', 'Cairo', monospace;
+    font-size: 0.92rem;
+    line-height: 2.2;
+    color: #1e293b;
+}
+
+.code-comment {
+    color: #059669;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    direction: rtl;
+    text-align: right;
+    display: block;
+    margin-top: 6px;
+}
+
+.code-input {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    border-bottom: 2px dashed #475569;
+    background: #ffffff;
+    color: #1e3a8a;
+    padding: 2px 8px;
+    border-radius: 4px;
+    min-width: 95px;
+    transition: all 0.2s;
+}
+
+.code-input:focus {
+    outline: none;
+    border-bottom: 2px solid var(--primary);
+    background: #eff6ff;
+}
+
+.code-input.correct {
+    background: #dcfce7;
+    border-bottom: 2px solid #15803d;
+    color: #14532d;
+}
+
+.code-input.wrong {
+    background: #fee2e2;
+    border-bottom: 2px solid #b91c1c;
+    color: #7f1d1d;
+}
+
+.feedback-banner {
+    margin-top: 10px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    display: none;
+}
+
+/* Footer Grid */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bonus-box {
+    background: #fdf4ff;
+    border: 1px solid #f0abfc;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+}
+
+.bonus-title {
+    font-weight: 800;
+    color: #86198f;
+    margin-bottom: 4px;
+}
+
+.checklist-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+}
+
+.checklist-title {
+    font-weight: 800;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+.check-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+}
+
+/* Solution Blocks */
+.solution-block {
+    background: var(--code-bg);
+    color: #f8fafc;
+    padding: 18px 22px;
+    border-radius: 12px;
+    direction: ltr;
+    text-align: left;
+    font-family: 'Fira Code', 'Cairo', monospace;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    margin-bottom: 22px;
+    overflow-x: auto;
+    position: relative;
+}
+
+.solution-block .c { color: #94a3b8; }
+.solution-block .k { color: #c084fc; font-weight: 600; }
+.solution-block .f { color: #38bdf8; }
+.solution-block .s { color: #86efac; }
+.solution-block .n { color: #fbbf24; }
+
+.copy-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Site Footer */
+.site-footer {
+    text-align: center;
+    padding: 24px 16px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+    .school-hero,
+    .nav-wrapper,
+    .downloads-card,
+    .sim-controls,
+    .Interactive-actions,
+    .copy-btn,
+    .site-footer {
+        display: none !important;
+    }
+    .main-container {
+        max-width: 100%;
+        padding: 0;
+    }
+    .worksheet {
+        display: block !important;
+        box-shadow: none;
+        border: 1px solid #cbd5e1;
+        margin: 0 0 20px 0;
+        padding: 20px 26px;
+        page-break-after: always;
+        break-after: page;
+    }
+    .worksheet#ws-solutions.hide-in-print {
+        display: none !important;
+    }
+}

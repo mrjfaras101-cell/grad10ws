@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أوراق عمل بايثون التفاعلية | مدرسة صويلح الثانوية للبنين - أ. باسم النعيمي</title>
+    <meta name="description" content="أوراق عمل ومشاريع مصغرة في لغة البايثون لطلبة الصف الأول الثانوي الأكاديمي - مدرسة صويلح الثانوية للبنين - إعداد المعلم باسم النعيمي">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الترويسة الرسمية للمدرسة والمعلم -->
+    <header class="school-hero">
+        <div class="hero-container">
+            <div class="school-branding">
+                <div class="school-emblem">🏫</div>
+                <div class="school-text">
+                    <h1>مدرسة صويلح الثانوية للبنين</h1>
+                    <p>مختبر البرمجة التفاعلي - مشاريع مصغرة في لغة البايثون (Python)</p>
+                </div>
+            </div>
+            <div class="teacher-card">
+                <div class="teacher-name">👨‍🏫 إعداد المعلم: باسم النعيمي</div>
+                <div class="grade-badge">🎓 الصف: الأول الثانوي الأكاديمي</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- شريط التنقل والتحكم -->
+    <div class="nav-wrapper">
+        <nav class="nav-bar">
+            <div class="tabs-group">
+                <button class="tab-btn active" onclick="filterWorksheets('all', this)">📚 عرض جميع الأوراق والحلول</button>
+                <button class="tab-btn" onclick="filterWorksheets('ws-1', this)">1️⃣ ورقة عمل (1): الكاشير الذكي</button>
+                <button class="tab-btn" onclick="filterWorksheets('ws-2', this)">2️⃣ ورقة عمل (2): المرشد الأكاديمي</button>
+                <button class="tab-btn" onclick="filterWorksheets('ws-3', this)">3️⃣ ورقة عمل (3): مدينة الألعاب</button>
+                <button class="tab-btn" onclick="filterWorksheets('ws-solutions', this)">🗝️ الحلول النموذجية</button>
+            </div>
+            <div class="actions-group">
+                <button class="btn btn-outline" onclick="printWorksheets(false)">🖨️ طباعة أوراق الطالب فقط</button>
+                <button class="btn btn-print" onclick="printWorksheets(true)">🖨️ طباعة الأوراق مع الحلول</button>
+            </div>
+        </nav>
+    </div>
+
+    <main class="main-container">
+
+        <!-- مركز تحميل ملفات الوورد (Word .docx) -->
+        <section class="downloads-card">
+            <div class="downloads-header">
+                <h2>📥 تحميل أوراق العمل بصيغة وورد (Microsoft Word .docx) الجاهزة للطباعة والتعديل:</h2>
+                <span style="font-size: 0.85rem; color: #475569; font-weight: 600;">مُنسقة بالكامل باللغة العربية مع الحلول</span>
+            </div>
+            <div class="downloads-grid">
+                <a class="download-item featured" href="word-files/أوراق_عمل_بايثون_الأول_الثانوي_الأكاديمي_مع_الحلول.docx" download>
+                    <span>📘 الحقيبة الكاملة (3 أوراق + الحلول)</span>
+                    <span>.DOCX ⬇</span>
+                </a>
+                <a class="download-item" href="word-files/نسخة_الطالب_أوراق_عمل_بايثون_بدون_حلول.docx" download>
+                    <span>📄 نسخة الطالب (3 أوراق بدون حل)</span>
+                    <span>.DOCX ⬇</span>
+                </a>
+                <a class="download-item" href="word-files/ورقة_عمل_1_الكاشير_الذكي_مع_الحل.docx" download>
+                    <span>🛒 ورقة عمل (1) + الحل</span>
+                    <span>.DOCX ⬇</span>
+                </a>
+                <a class="download-item" href="word-files/ورقة_عمل_2_المرشد_الأكاديمي_مع_الحل.docx" download>
+                    <span>🎓 ورقة عمل (2) + الحل</span>
+                    <span>.DOCX ⬇</span>
+                </a>
+                <a class="download-item" href="word-files/ورقة_عمل_3_بوابة_مدينة_الألعاب_مع_الحل.docx" download>
+                    <span>🎢 ورقة عمل (3) + الحل</span>
+                    <span>.DOCX ⬇</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ==========================================================
+             ورقة العمل (1): الكاشير الذكي في مقصف المدرسة
+             ========================================================== -->
+        <section class="worksheet ws-1" id="ws-1">
+            <div class="ws-official-bar">
+                <span>🏫 مدرسة صويلح الثانوية للبنين</span>
+                <span>👨‍🏫 المعلم: باسم النعيمي</span>
+                <span>🎓 الصف: الأول الثانوي الأكاديمي</span>
+            </div>
+
+            <div class="ws-header">
+                <div>
+                    <span class="ws-badge">ورقة عمل (1) - مشروع مصغر تطبيقي</span>
+                    <h2 class="ws-title">🛒 مشروع: برنامج الكاشير الذكي في مقصف المدرسة</h2>
+                </div>
+                <div class="student-meta">
+                    <div>اسم الطالب: <input type="text" placeholder="اكتب اسمك هنا..."></div>
+                    <div>الشعبة: <input type="text" placeholder="الأول الثانوي ( ... )"></div>
+                    <div>التاريخ: <input type="text" placeholder="20 / 10 / 2026م"></div>
+                    <div>العملة المعتمدة: <strong style="color:#1e3a8a;">الدينار الأردني (JOD)</strong></div>
+                </div>
+            </div>
+
+            <div class="concepts-bar">
+                <span class="concepts-label">🎯 المفاهيم المستهدفة:</span>
+                <span class="tag">جملة الطباعة <code>print()</code></span>
+                <span class="tag">جملة الإدخال <code>input()</code></span>
+                <span class="tag">المعاملات الحسابية <code>* , - , +</code></span>
+                <span class="tag">معاملات المقارنة <code>&gt;=</code></span>
+                <span class="tag">الجملة الشرطية <code>if / else</code></span>
+            </div>
+
+            <div class="scenario-box">
+                <div class="scenario-title">💡 فكرة المشروع (الاعتماد على النفس):</div>
+                <p>
+                    يريد مقصف <strong>مدرسة صويلح الثانوية للبنين</strong> تصميم برنامج بسيط يحسب فاتورة الطالب تلقائياً <strong>بالدينار الأردني</strong>. يطلب البرنامج من الطالب إدخال <strong>اسمه</strong>، و<strong>سعر الوجبة الواحدة بالدينار</strong>، و<strong>عدد الوجبات</strong> التي اشتراها، ثم يحسب المجموع الكلي. ولأن المدرسة تشجع الطلاب، إذا كانت قيمة الفاتورة <strong>10 دنانير أردنية أو أكثر</strong> يحصل الطالب على <strong>خصم فوري بقيمة 2 دينار أردني</strong>!
+                </p>
+            </div>
+
+            <h3 class="section-title">🛠️ خطوات بناء المشروع (نفّذها بالترتيب):</h3>
+            <ol class="steps-list">
+                <li><div>اطبع رسالة ترحيبية على الشاشة في بداية البرنامج باستخدام دالة <span class="inline-code">print()</span>.</div></li>
+                <li><div>اطلب من الطالب إدخال <strong>اسمه</strong> باستخدام دالة <span class="inline-code">input()</span> وخزّنه في متغير باسم <span class="inline-code">name</span>.</div></li>
+                <li><div>اطلب إدخال <strong>سعر الوجبة بالدينار الأردني</strong> في متغير <span class="inline-code">price</span>، و<strong>عدد الوجبات</strong> في متغير <span class="inline-code">quantity</span> (لا تنسَ تحويل الأرقام المدخلة!).</div></li>
+                <li><div>احسب <strong>المبلغ الإجمالي</strong> في متغير <span class="inline-code">total</span> عن طريق ضرب السعر في عدد الوجبات <span class="inline-code">price * quantity</span> ثم اطبعه بالدينار الأردني.</div></li>
+                <li><div>استخدم الجملة الشرطية <span class="inline-code">if</span> للتحقق: إذا كان <span class="inline-code">total &gt;= 10</span>، اطرح <span class="inline-code">2</span> من المجموع واطبع رسالة تهنئة بالخصم، وإلا (<span class="inline-code">else</span>) اطبع أنه لا يوجد خصم، وفي النهاية اطبع المبلغ النهائي المطلوب دفعه بالدينار الأردني.</div></li>
+            </ol>
+
+            <div class="grid-2">
+                <div class="hints-box">
+                    <div class="hints-title">🔑 تلميحات ذكية لمساعدتك (Hints):</div>
+                    <ul class="hints-list">
+                        <li><strong>تلميح (1):</strong> دالة <span class="inline-code">input()</span> تقرأ المدخلات كنصوص دائماً؛ لذلك استخدم <span class="inline-code">float(input(...))</span> مع السعر بالدينار، و <span class="inline-code">int(input(...))</span> مع عدد الوجبات.</li>
+                        <li><strong>تلميح (2):</strong> لدمج نص مع متغير داخل جملة الطباعة افصل بينهما بفاصلة مثل: <span class="inline-code">print("مرحباً يا", name)</span>.</li>
+                        <li><strong>تلميح (3):</strong> لا تنسَ وضع النقطتين الرأسيتين <span class="inline-code">:</span> في نهاية سطر <span class="inline-code">if</span> وسطر <span class="inline-code">else</span>، وترك مسافة بادئة (Tab) للأسطر التي بداخلها.</li>
+                    </ul>
+                </div>
+
+                <div class="terminal-box">
+                    <div class="terminal-header">
+                        <span>🖥️ محاكي شاشة التنفيذ التفاعلي (جرّبه بنفسك!)</span>
+                        <div class="terminal-dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+                    </div>
+                    <div class="terminal-body" id="term-body-1">
+                        *** أهلاً بك في كاشير مقصف مدرسة صويلح الثانوية للبنين ***<br>
+                        أدخل اسمك: <span class="user-input">أحمد</span><br>
+                        أدخل سعر الوجبة بالدينار الأردني: <span class="user-input">4</span><br>
+                        أدخل عدد الوجبات: <span class="user-input">3</span><br>
+                        المجموع قبل الخصم: 12.0 دينار أردني<br>
+                        🎉 مبروك يا أحمد! حصلت على خصم بقيمة 2 دينار أردني!<br>
+                        <strong>المبلغ النهائي المطلوب دفعه: 10.0 دينار أردني</strong>
+                    </div>
+                    <div class="sim-controls">
+                        <input type="text" id="sim1-name" value="أحمد" placeholder="الاسم">
+                        <input type="number" id="sim1-price" value="4" step="0.5" placeholder="السعر (دينار)">
+                        <input type="number" id="sim1-qty" value="3" placeholder="العدد">
+                        <button class="sim-btn" onclick="runSim1()">▶ شغّل البرنامج</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <span>💻 مساحة كتابة الكود (أكمل الفراغات البرمجية التالية):</span>
+                <div class="Interactive-actions" style="display:flex; gap:8px;">
+                    <button class="btn btn-success" onclick="checkAnswers(1)">✅ تحقق من إجابتي</button>
+                    <button class="btn btn-outline" onclick="fillSampleAnswers(1)">👁️ إظهار الحل في الفراغات</button>
+                    <button class="btn btn-outline" onclick="resetAnswers(1)">🔄 مسح</button>
+                </div>
+            </div>
+
+            <div class="code-workspace">
+                <span class="code-comment"># 1. طباعة رسالة الترحيب وقراءة بيانات الطالب</span>
+                print(<input type="text" class="code-input ws-1-input" style="min-width:250px;" data-anytext="true" data-ans='"أهلاً بك في كاشير المقصف"' placeholder='"أهلاً بك في كاشير المقصف"'>)<br>
+                name = <input type="text" class="code-input ws-1-input" data-ans="input" placeholder="........">("أدخل اسمك: ")<br>
+                price = float(<input type="text" class="code-input ws-1-input" data-ans="input" placeholder="........">("أدخل سعر الوجبة بالدينار الأردني: "))<br>
+                quantity = int(input("أدخل عدد الوجبات: "))<br>
+
+                <span class="code-comment"># 2. العملية الحسابية لحساب المجموع بالدينار الأردني</span>
+                total = price <input type="text" class="code-input ws-1-input" style="min-width:60px;" data-ans="*" placeholder="..."> quantity<br>
+                print("المجموع قبل الخصم:", <input type="text" class="code-input ws-1-input" data-ans="total" placeholder="........">, "دينار أردني")<br>
+
+                <span class="code-comment"># 3. الجملة الشرطية للتحقق من استحقاق الخصم (10 دنانير فأكثر)</span>
+                if total <input type="text" class="code-input ws-1-input" style="min-width:65px;" data-ans=">=" placeholder="..."> 10:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;total = total - <input type="text" class="code-input ws-1-input" style="min-width:55px;" data-ans="2" placeholder="..."><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("مبروك يا", name, "حصلت على خصم بقيمة 2 دينار أردني!")<br>
+                <input type="text" class="code-input ws-1-input" style="min-width:75px;" data-ans="else" placeholder="......">:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("شكراً لك يا", name, "لا يوجد خصم لهذه الفاتورة.")<br>
+                print("المبلغ النهائي المطلوب دفعه:", total, "دينار أردني")
+            </div>
+            <div id="feedback-ws-1" class="feedback-banner"></div>
+
+            <div class="footer-grid">
+                <div class="bonus-box">
+                    <div class="bonus-title">🚀 تحدي المبدعين (إضافي):</div>
+                    <p>عدّل البرنامج ليطلب من الطالب إدخال <strong>"المبلغ النقدي المدفوع بالدينار الأردني"</strong>، ثم يحسب البرنامج <strong>الباقي للطالب</strong> باستخدام عملية الطرح <span class="inline-code">-</span> ويطبعه على الشاشة!</p>
+                </div>
+                <div class="checklist-box">
+                    <div class="checklist-title">✅ قيّم نفسك قبل التسليم:</div>
+                    <label class="check-item"><input type="checkbox"> استخدمت دالة <code>input()</code> وحوّلت المدخلات العددية.</label>
+                    <label class="check-item"><input type="checkbox"> استخدمت معامل الضرب <code>*</code> والطرح <code>-</code> بشكل صحيح.</label>
+                    <label class="check-item"><input type="checkbox"> وضعت النقطتين <code>:</code> والمسافة البادئة في جملة <code>if / else</code>.</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================
+             ورقة العمل (2): المرشد الأكاديمي وحاسبة المعدل الذكية
+             ========================================================== -->
+        <section class="worksheet ws-2" id="ws-2">
+            <div class="ws-official-bar">
+                <span>🏫 مدرسة صويلح الثانوية للبنين</span>
+                <span>👨‍🏫 المعلم: باسم النعيمي</span>
+                <span>🎓 الصف: الأول الثانوي الأكاديمي</span>
+            </div>
+
+            <div class="ws-header">
+                <div>
+                    <span class="ws-badge">ورقة عمل (2) - مشروع مصغر تطبيقي</span>
+                    <h2 class="ws-title">🎓 مشروع: المرشد الأكاديمي وحاسبة المعدل الذكية</h2>
+                </div>
+                <div class="student-meta">
+                    <div>اسم الطالب: <input type="text" placeholder="اكتب اسمك هنا..."></div>
+                    <div>الشعبة: <input type="text" placeholder="الأول الثانوي ( ... )"></div>
+                    <div>التاريخ: <input type="text" placeholder="20 / 10 / 2026م"></div>
+                    <div>المكافأة التشجيعية: <strong style="color:#0f766e;">25 ديناراً أردنياً</strong></div>
+                </div>
+            </div>
+
+            <div class="concepts-bar">
+                <span class="concepts-label">🎯 المفاهيم المستهدفة:</span>
+                <span class="tag">الأولويات الحسابية <code>( + ) /</code></span>
+                <span class="tag">الشروط المتعددة <code>if / elif / else</code></span>
+                <span class="tag">معاملات المقارنة <code>&gt;= , ==</code></span>
+                <span class="tag">المعامل المنطقي <code>and</code></span>
+            </div>
+
+            <div class="scenario-box">
+                <div class="scenario-title">💡 فكرة المشروع (الاعتماد على النفس):</div>
+                <p>
+                    نريد بناء برنامج يساعد طالب <strong>الصف الأول الثانوي الأكاديمي</strong> في <strong>مدرسة صويلح الثانوية للبنين</strong> على معرفة نتيجته الأكاديمية. يطلب البرنامج من الطالب إدخال علاماته في <strong>3 اختبارات</strong>، وعدد <strong>أيام غيابه</strong>. يقوم البرنامج بحساب <strong>المعدل (المتوسط الحسابي)</strong>، ثم يحدد التقدير اللفظي للطالب، ويقرر هل يستحق <strong>"شهادة التفوق والانضباط ومكافأة 25 ديناراً أردنياً"</strong> (والتي تتطلب أن يكون المعدل 90 فأكثر <strong>و</strong> عدد أيام الغياب يساوي 0).
+                </p>
+            </div>
+
+            <h3 class="section-title">🛠️ خطوات بناء المشروع (نفّذها بالترتيب):</h3>
+            <ol class="steps-list">
+                <li><div>اقرأ من الطالب علامات الاختبارات الثلاثة (<span class="inline-code">g1</span>, <span class="inline-code">g2</span>, <span class="inline-code">g3</span>) وعدد أيام الغياب (<span class="inline-code">absence</span>) كأعداد صحيحة <span class="inline-code">int</span>.</div></li>
+                <li><div>احسب المعدل في متغير <span class="inline-code">avg</span> بجمع العلامات الثلاث وقسمتها على 3: <span class="inline-code">(g1 + g2 + g3) / 3</span> ثم اطبع المعدل.</div></li>
+                <li><div>استخدم الجمل الشرطية المتعددة <span class="inline-code">if / elif / else</span> لطباعة التقدير:
+                    <br>• إذا كان المعدل <span class="inline-code">&gt;= 90</span> اطبع: <strong>"التقدير: ممتاز"</strong>.
+                    <br>• وإلا إذا كان المعدل <span class="inline-code">&gt;= 75</span> اطبع: <strong>"التقدير: جيد جداً"</strong>.
+                    <br>• وإلا إذا كان المعدل <span class="inline-code">&gt;= 50</span> اطبع: <strong>"التقدير: ناجح"</strong>.
+                    <br>• وإلا (<span class="inline-code">else</span>) اطبع: <strong>"التقدير: يحتاج إلى تحسين"</strong>.
+                </div></li>
+                <li><div>استخدم جملة <span class="inline-code">if</span> مع المعامل المنطقي <span class="inline-code">and</span> للتحقق مما إذا كان <span class="inline-code">avg &gt;= 90</span> <strong>و</strong> <span class="inline-code">absence == 0</span> لطباعة رسالة منحه شهادة التفوق ومكافأة 25 ديناراً أردنياً!</div></li>
+            </ol>
+
+            <div class="grid-2">
+                <div class="hints-box">
+                    <div class="hints-title">🔑 تلميحات ذكية لمساعدتك (Hints):</div>
+                    <ul class="hints-list">
+                        <li><strong>تلميح (1) الأقواس مهمة!:</strong> عند حساب المعدل يجب وضع عملية الجمع بين قوسين <span class="inline-code">(g1 + g2 + g3) / 3</span> لأن القسمة لها أولوية أعلى من الجمع في البايثون.</li>
+                        <li><strong>تلميح (2) الفرق بين <code>=</code> و <code>==</code>:</strong> العلامة <span class="inline-code">=</span> تُستخدم لتخزين قيمة في متغير، بينما <span class="inline-code">==</span> تُستخدم للمقارنة (هل الطرفان متساويان؟).</li>
+                        <li><strong>تلميح (3) المعامل <code>and</code>:</strong> يشترط أن يكون الشرطان (يمين ويسار <code>and</code>) صحيحين معاً لتنفيذ الكود.</li>
+                    </ul>
+                </div>
+
+                <div class="terminal-box">
+                    <div class="terminal-header">
+                        <span>🖥️ محاكي شاشة التنفيذ التفاعلي (جرّبه بنفسك!)</span>
+                        <div class="terminal-dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+                    </div>
+                    <div class="terminal-body" id="term-body-2">
+                        أدخل علامات الاختبارات الثلاثة: <span class="user-input">92 ، 95 ، 98</span><br>
+                        أدخل عدد أيام الغياب: <span class="user-input">0</span><br>
+                        معدلك الحسابي هو: 95.0<br>
+                        التقدير: <strong>ممتاز</strong><br>
+                        🏆 مبارك! تستحق شهادة التفوق والانضباط ومكافأة 25 ديناراً أردنياً.
+                    </div>
+                    <div class="sim-controls">
+                        <input type="number" id="sim2-g1" value="92" style="width:65px" placeholder="علامة 1">
+                        <input type="number" id="sim2-g2" value="95" style="width:65px" placeholder="علامة 2">
+                        <input type="number" id="sim2-g3" value="98" style="width:65px" placeholder="علامة 3">
+                        <input type="number" id="sim2-abs" value="0" style="width:65px" placeholder="الغياب">
+                        <button class="sim-btn" onclick="runSim2()">▶ شغّل البرنامج</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <span>💻 مساحة كتابة الكود (أكمل الفراغات البرمجية التالية):</span>
+                <div class="Interactive-actions" style="display:flex; gap:8px;">
+                    <button class="btn btn-success" onclick="checkAnswers(2)">✅ تحقق من إجابتي</button>
+                    <button class="btn btn-outline" onclick="fillSampleAnswers(2)">👁️ إظهار الحل في الفراغات</button>
+                    <button class="btn btn-outline" onclick="resetAnswers(2)">🔄 مسح</button>
+                </div>
+            </div>
+
+            <div class="code-workspace">
+                <span class="code-comment"># 1. قراءة العلامات الثلاث وعدد أيام الغياب</span>
+                g1 = int(input("أدخل علامة الاختبار الأول: "))<br>
+                g2 = int(input("أدخل علامة الاختبار الثاني: "))<br>
+                g3 = int(input("أدخل علامة الاختبار الثالث: "))<br>
+                absence = int(input("أدخل عدد أيام الغياب: "))<br>
+
+                <span class="code-comment"># 2. حساب المتوسط الحسابي (انتبه للأقواس)</span>
+                avg = (g1 + g2 + g3) <input type="text" class="code-input ws-2-input" style="min-width:55px;" data-ans="/" placeholder="..."> 3<br>
+                print("معدلك الحسابي هو:", avg)<br>
+
+                <span class="code-comment"># 3. تحديد التقدير باستخدام الشروط المتعددة if / elif / else</span>
+                if avg &gt;= 90:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("التقدير: ممتاز")<br>
+                <input type="text" class="code-input ws-2-input" style="min-width:75px;" data-ans="elif" placeholder="......"> avg &gt;= 75:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("التقدير: جيد جداً")<br>
+                elif avg <input type="text" class="code-input ws-2-input" style="min-width:65px;" data-ans=">=" placeholder="..."> 50:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("التقدير: ناجح")<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("التقدير: يحتاج إلى تحسين")<br>
+
+                <span class="code-comment"># 4. شرط شهادة التفوق والانضباط باستخدام المعامل المنطقي (and)</span>
+                if avg &gt;= 90 <input type="text" class="code-input ws-2-input" style="min-width:75px;" data-ans="and" placeholder="......"> absence <input type="text" class="code-input ws-2-input" style="min-width:65px;" data-ans="==" placeholder="..."> 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("مبارك! تستحق شهادة التفوق ومكافأة 25 ديناراً أردنياً.")
+            </div>
+            <div id="feedback-ws-2" class="feedback-banner"></div>
+
+            <div class="footer-grid">
+                <div class="bonus-box">
+                    <div class="bonus-title">🚀 تحدي المبدعين (إضافي):</div>
+                    <p>أضف جملة شرطية تستخدم المعامل المنطقي <span class="inline-code">or</span> تطبع <strong>"تنبيه من المرشد الأكاديمي!"</strong> إذا كان المعدل أقل من 50 <strong>أو</strong> كان عدد أيام الغياب أكبر من 5 أيام.</p>
+                </div>
+                <div class="checklist-box">
+                    <div class="checklist-title">✅ قيّم نفسك قبل التسليم:</div>
+                    <label class="check-item"><input type="checkbox"> وضعت الأقواس حول عملية الجمع قبل القسمة على 3.</label>
+                    <label class="check-item"><input type="checkbox"> استخدمت <code>elif</code> للشروط الوسطى و <code>else</code> للحالة الأخيرة.</label>
+                    <label class="check-item"><input type="checkbox"> استخدمت <code>==</code> للمقارنة بالصفر ومعامل <code>and</code> للربط.</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================
+             ورقة العمل (3): البوابة الذكية لمدينة الألعاب التفاعلية
+             ========================================================== -->
+        <section class="worksheet ws-3" id="ws-3">
+            <div class="ws-official-bar">
+                <span>🏫 مدرسة صويلح الثانوية للبنين</span>
+                <span>👨‍🏫 المعلم: باسم النعيمي</span>
+                <span>🎓 الصف: الأول الثانوي الأكاديمي</span>
+            </div>
+
+            <div class="ws-header">
+                <div>
+                    <span class="ws-badge">ورقة عمل (3) - مشروع مصغر شامل</span>
+                    <h2 class="ws-title">🎢 مشروع: البوابة الذكية لمدينة الألعاب التفاعلية</h2>
+                </div>
+                <div class="student-meta">
+                    <div>اسم الطالب: <input type="text" placeholder="اكتب اسمك هنا..."></div>
+                    <div>الشعبة: <input type="text" placeholder="الأول الثانوي ( ... )"></div>
+                    <div>التاريخ: <input type="text" placeholder="20 / 10 / 2026م"></div>
+                    <div>العملة المعتمدة: <strong style="color:#6d28d9;">الدينار الأردني (JOD)</strong></div>
+                </div>
+            </div>
+
+            <div class="concepts-bar">
+                <span class="concepts-label">🎯 المفاهيم المستهدفة:</span>
+                <span class="tag">باقي القسمة <code>%</code></span>
+                <span class="tag">المعاملات المنطقية <code>and , or , not</code></span>
+                <span class="tag">معاملات المقارنة <code>&gt;= , &lt; , ==</code></span>
+                <span class="tag">الشروط المتداخلة <code>if / else</code></span>
+            </div>
+
+            <div class="scenario-box">
+                <div class="scenario-title">💡 فكرة المشروع (تطبيق شامل لكل ما تعلمته):</div>
+                <p>
+                    كلّفتك إدارة مدينة الألعاب في عمّان ببرمجة البوابة الإلكترونية للعبة <strong>"قطار المغامرات السريع"</strong>. يقوم البرنامج بالتأكد من شروط الأمان للزائر، ويحسب سعر تذكرته <strong>بالدينار الأردني</strong>، ثم يفحص رقم تذكرته لمعرفة إن كان من الفائزين بقسيمة مجانية بقيمة 2 دينار أردني (أصحاب التذاكر ذات الأرقام الزوجية)!
+                </p>
+            </div>
+
+            <h3 class="section-title">🛠️ قوانين البوابة الذكية (خطوات بناء المشروع):</h3>
+            <ol class="steps-list">
+                <li><div>اطلب من الزائر إدخال: <strong>عمره</strong> (<span class="inline-code">age</span>)، و<strong>طوله بالسنتيمتر</strong> (<span class="inline-code">height</span>)، و<strong>رقم تذكرته</strong> (<span class="inline-code">ticket_num</span>).</div></li>
+                <li><div><strong>شرط الأمان لدخول القطار:</strong> يُسمح بالركوب إذا كان العمر <strong>12 سنة أو أكثر</strong> <span class="inline-code">and</span> الطول <strong>140 سم أو أكثر</strong>. غير ذلك يُطبع اعتذار بعدم السماح بالركوب.</div></li>
+                <li><div><strong>حساب سعر التذكرة بالدينار الأردني (لمن سُمح له بالدخول):</strong> السعر الأساسي هو <strong>5 دنانير أردنية</strong>، لكن إذا كان عمر الزائر <strong>أقل من 16 سنة</strong> <strong>أو (<span class="inline-code">or</span>)</strong> عمره <strong>60 سنة فأكثر</strong> يحصل على تذكرة مخفضة بسعر <strong>3 دنانير أردنية</strong> فقط!</div></li>
+                <li><div><strong>هدية الحظ (باقي القسمة <span class="inline-code">%</span>):</strong> إذا كان باقي قسمة رقم التذكرة على 2 يساوي صفراً (<span class="inline-code">ticket_num % 2 == 0</span>)، فهذا يعني أن الرقم زوجي، فيطبع البرنامج: <strong>"🎁 رقم تذكرتك زوجي! ربحت قسيمة مجانية بقيمة 2 دينار أردني"</strong>.</div></li>
+            </ol>
+
+            <div class="grid-2">
+                <div class="hints-box">
+                    <div class="hints-title">🔑 تلميحات ذكية لمساعدتك (Hints):</div>
+                    <ul class="hints-list">
+                        <li><strong>تلميح (1) المعامل <code>or</code>:</strong> يكفي أن يتحقق <strong>شرط واحد فقط</strong> من الشرطين ليحصل الزائر على التذكرة المخفضة (3 دنانير أردنية).</li>
+                        <li><strong>تلميح (2) معامل باقي القسمة <code>%</code>:</strong> يعطينا الباقي من عملية القسمة؛ مثلاً <span class="inline-code">104 % 2</span> الناتج <span class="inline-code">0</span> (زوجي)، بينما <span class="inline-code">105 % 2</span> الناتج <span class="inline-code">1</span> (فردي).</li>
+                        <li><strong>تلميح (3) المعامل <code>not</code>:</strong> يُستخدم لعكس النتيجة المنطقية (تحويل <code>True</code> إلى <code>False</code> والعكس).</li>
+                    </ul>
+                </div>
+
+                <div class="terminal-box">
+                    <div class="terminal-header">
+                        <span>🖥️ محاكي شاشة التنفيذ التفاعلي (جرّبه بنفسك!)</span>
+                        <div class="terminal-dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+                    </div>
+                    <div class="terminal-body" id="term-body-3">
+                        أدخل عمرك: <span class="user-input">15</span> | طولك (سم): <span class="user-input">160</span> | رقم تذكرتك: <span class="user-input">104</span><br>
+                        ✅ مسموح لك بركوب قطار المغامرات السريع!<br>
+                        🎟️ شملتك فئة الخصم! سعر تذكرتك: <strong>3 دنانير أردنية</strong>.<br>
+                        🎁 رقم تذكرتك (104) زوجي! ربحت قسيمة مجانية بقيمة 2 دينار أردني.
+                    </div>
+                    <div class="sim-controls">
+                        <input type="number" id="sim3-age" value="15" style="width:75px" placeholder="العمر">
+                        <input type="number" id="sim3-height" value="160" style="width:85px" placeholder="الطول سم">
+                        <input type="number" id="sim3-ticket" value="104" style="width:85px" placeholder="رقم التذكرة">
+                        <button class="sim-btn" onclick="runSim3()">▶ شغّل البرنامج</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <span>💻 مساحة كتابة الكود (أكمل الفراغات البرمجية التالية):</span>
+                <div class="Interactive-actions" style="display:flex; gap:8px;">
+                    <button class="btn btn-success" onclick="checkAnswers(3)">✅ تحقق من إجابتي</button>
+                    <button class="btn btn-outline" onclick="fillSampleAnswers(3)">👁️ إظهار الحل في الفراغات</button>
+                    <button class="btn btn-outline" onclick="resetAnswers(3)">🔄 مسح</button>
+                </div>
+            </div>
+
+            <div class="code-workspace">
+                <span class="code-comment"># 1. إدخال بيانات الزائر</span>
+                age = int(input("أدخل عمرك: "))<br>
+                height = int(input("أدخل طولك (سم): "))<br>
+                ticket_num = int(input("أدخل رقم تذكرتك: "))<br>
+
+                <span class="code-comment"># 2. التحقق من شرط الأمان (العمر 12 فأكثر والطول 140 فأكثر معاً)</span>
+                if age &gt;= 12 <input type="text" class="code-input ws-3-input" style="min-width:75px;" data-ans="and" placeholder="......"> height <input type="text" class="code-input ws-3-input" style="min-width:65px;" data-ans=">=" placeholder="..."> 140:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("✅ مسموح لك بركوب قطار المغامرات!")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># 3. تحديد سعر التذكرة بالدينار الأردني (أقل من 16 أو 60 فأكثر)</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;if age &lt; 16 <input type="text" class="code-input ws-3-input" style="min-width:70px;" data-ans="or" placeholder="......"> age &gt;= 60:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price = 3<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("🎟️ شملتك فئة الخصم! سعر تذكرتك:", price, "دنانير أردنية.")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price = 5<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("🎟️ سعر تذكرتك الأساسي:", price, "دنانير أردنية.")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># 4. فحص رقم التذكرة الزوجي باستخدام باقي القسمة (%)</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;if ticket_num <input type="text" class="code-input ws-3-input" style="min-width:55px;" data-ans="%" placeholder="..."> 2 == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("🎁 رقم تذكرتك زوجي! ربحت قسيمة مجانية بقيمة 2 دينار أردني.")<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("❌ عذراً، شروط الأمان (العمر أو الطول) غير مستوفاة.")
+            </div>
+            <div id="feedback-ws-3" class="feedback-banner"></div>
+
+            <div class="footer-grid">
+                <div class="bonus-box">
+                    <div class="bonus-title">🚀 تحدي المبدعين (استخدام المعامل <code>not</code> أو <code>**</code>):</div>
+                    <p>أضف سطراً يحسب <strong>"نقاط المكافآت"</strong> برفع عدد الألعاب التي لعبها الزائر للأس 2 باستخدام معامل الأس <span class="inline-code">**</span>، وجرّب استخدام <span class="inline-code">not</span> في شرط إضافي!</p>
+                </div>
+                <div class="checklist-box">
+                    <div class="checklist-title">✅ قيّم نفسك قبل التسليم:</div>
+                    <label class="check-item"><input type="checkbox"> فرّقت بنجاح بين استخدام <code>and</code> واستخدام <code>or</code>.</label>
+                    <label class="check-item"><input type="checkbox"> استخدمت معامل باقي القسمة <code>%</code> لاكتشاف العدد الزوجي.</label>
+                    <label class="check-item"><input type="checkbox"> راعيت المسافات البادئة للشروط المتداخلة بدقة.</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================
+             ملحق الحلول النموذجية الكاملة (إشراف المعلم باسم النعيمي)
+             ========================================================== -->
+        <section class="worksheet ws-key" id="ws-solutions">
+            <div class="ws-official-bar">
+                <span>🏫 مدرسة صويلح الثانوية للبنين</span>
+                <span>👨‍🏫 المعلم: باسم النعيمي</span>
+                <span>🎓 الصف: الأول الثانوي الأكاديمي</span>
+            </div>
+
+            <div class="ws-header">
+                <div>
+                    <span class="ws-badge">دليل الحلول النموذجية المعتمدة</span>
+                    <h2 class="ws-title">🗝️ الحلول البرمجية الكاملة لأوراق العمل الثلاث (مع التحديات الإضافية)</h2>
+                </div>
+            </div>
+
+            <h3 class="section-title">1️⃣ حل ورقة العمل الأولى: الكاشير الذكي في مقصف المدرسة (بالدينار الأردني)</h3>
+            <div class="solution-block">
+                <button class="copy-btn" onclick="copySolutionCode('sol-code-1', this)">📋 نسخ الكود</button>
+                <div id="sol-code-1">
+<span class="c"># 1. طباعة رسالة الترحيب وقراءة بيانات الطالب</span><br>
+<span class="f">print</span>(<span class="s">"*** أهلاً بك في كاشير مقصف مدرسة صويلح الثانوية للبنين ***"</span>)<br>
+name = <span class="f">input</span>(<span class="s">"أدخل اسمك: "</span>)<br>
+price = <span class="f">float</span>(<span class="f">input</span>(<span class="s">"أدخل سعر الوجبة بالدينار الأردني: "</span>))<br>
+quantity = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"أدخل عدد الوجبات: "</span>))<br><br>
+<span class="c"># 2. العملية الحسابية لحساب المجموع بالدينار الأردني</span><br>
+total = price * quantity<br>
+<span class="f">print</span>(<span class="s">"المجموع قبل الخصم:"</span>, total, <span class="s">"دينار أردني"</span>)<br><br>
+<span class="c"># 3. الجملة الشرطية للتحقق من استحقاق الخصم (10 دنانير فأكثر)</span><br>
+<span class="k">if</span> total &gt;= <span class="n">10</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total - <span class="n">2</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"مبروك يا"</span>, name, <span class="s">"حصلت على خصم بقيمة 2 دينار أردني!"</span>)<br>
+<span class="k">else</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"شكراً لك يا"</span>, name, <span class="s">"لا يوجد خصم لهذه الفاتورة."</span>)<br><br>
+<span class="f">print</span>(<span class="s">"المبلغ النهائي المطلوب دفعه:"</span>, total, <span class="s">"دينار أردني"</span>)<br><br>
+<span class="c"># حل تحدي المبدعين الإضافي (حساب الباقي بالدينار الأردني):</span><br>
+paid = <span class="f">float</span>(<span class="f">input</span>(<span class="s">"أدخل المبلغ النقدي المدفوع بالدينار: "</span>))<br>
+change = paid - total<br>
+<span class="f">print</span>(<span class="s">"الباقي لك:"</span>, change, <span class="s">"دينار أردني"</span>)
+                </div>
+            </div>
+
+            <h3 class="section-title">2️⃣ حل ورقة العمل الثانية: المرشد الأكاديمي وحاسبة المعدل الذكية</h3>
+            <div class="solution-block">
+                <button class="copy-btn" onclick="copySolutionCode('sol-code-2', this)">📋 نسخ الكود</button>
+                <div id="sol-code-2">
+<span class="c"># 1. قراءة العلامات الثلاث وعدد أيام الغياب</span><br>
+g1 = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"أدخل علامة الاختبار الأول: "</span>))<br>
+g2 = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"أدخل علامة الاختبار الثاني: "</span>))<br>
+g3 = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"أدخل علامة الاختبار الثالث: "</span>))<br>
+absence = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"أدخل عدد أيام الغياب: "</span>))<br><br>
+<span class="c"># 2. حساب المتوسط الحسابي</span><br>
+avg = (g1 + g2 + g3) / <span class="n">3</span><br>
+<span class="f">print</span>(<span class="s">"معدلك الحسابي هو:"</span>, avg)<br><br>
+<span class="c"># 3. تحديد التقدير باستخدام الشروط المتعددة</span><br>
+<span class="k">if</span> avg &gt;= <span class="n">90</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"التقدير: ممتاز"</span>)<br>
+<span class="k">elif</span> avg &gt;= <span class="n">75</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"التقدير: جيد جداً"</span>)<br>
+<span class="k">elif</span> avg &gt;= <span class="n">50</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"التقدير: ناجح"</span>)<br>
+<span class="k">else</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"التقدير: يحتاج إلى تحسين"</span>)<br><br>
+<span class="c"># 4. شرط شهادة التفوق والانضباط باستخدام (and)</span><br>
+<span class="k">if</span> avg &gt;= <span class="n">90</span> <span class="k">and</span> absence == <span class="n">0</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"🏆 مبارك! تستحق شهادة التفوق ومكافأة 25 ديناراً أردنياً."</span>)<br><br>
+<span class="c"># حل تحدي المبدعين باستخدام (or):</span><br>
+<span class="k">if</span> avg &lt; <span class="n">50</span> <span class="k">or</span> absence &gt; <span class="n">5</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"⚠️ تنبيه من المرشد الأكاديمي: يرجى مراجعة الإرشاد التربوي!"</span>)
+                </div>
+            </div>
+
+            <h3 class="section-title">3️⃣ حل ورقة العمل الثالثة: البوابة الذكية لمدينة الألعاب التفاعلية (بالدينار الأردني)</h3>
+            <div class="solution-block">
+                <button class="copy-btn" onclick="copySolutionCode('sol-code-3', this)">📋 نسخ الكود</button>
+                <div id="sol-code-3">
+<span class="c"># 1. إدخال بيانات الزائر</span><br>
+age = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"أدخل عمرك: "</span>))<br>
+height = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"أدخل طولك (سم): "</span>))<br>
+ticket_num = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"أدخل رقم تذكرتك: "</span>))<br><br>
+<span class="c"># 2. التحقق من شرط الأمان</span><br>
+<span class="k">if</span> age &gt;= <span class="n">12</span> <span class="k">and</span> height &gt;= <span class="n">140</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"✅ مسموح لك بركوب قطار المغامرات!"</span>)<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># 3. تحديد سعر التذكرة بالدينار الأردني (أقل من 16 أو 60 فأكثر)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> age &lt; <span class="n">16</span> <span class="k">or</span> age &gt;= <span class="n">60</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price = <span class="n">3</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"🎟️ شملتك فئة الخصم! سعر تذكرتك:"</span>, price, <span class="s">"دنانير أردنية."</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">else</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price = <span class="n">5</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"🎟️ سعر تذكرتك الأساسي:"</span>, price, <span class="s">"دنانير أردنية."</span>)<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># 4. فحص رقم التذكرة الزوجي باستخدام باقي القسمة (%)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> ticket_num % <span class="n">2</span> == <span class="n">0</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"🎁 رقم تذكرتك زوجي! ربحت قسيمة مجانية بقيمة 2 دينار أردني."</span>)<br>
+<span class="k">else</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"❌ عذراً، شروط الأمان (العمر أو الطول) غير مستوفاة."</span>)<br><br>
+<span class="c"># حل تحدي المبدعين باستخدام الأس (**) والمعامل المنطقي (not):</span><br>
+games_played = <span class="n">4</span><br>
+points = games_played ** <span class="n">2</span><br>
+<span class="k">if</span> <span class="k">not</span> (age &lt; <span class="n">12</span>):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"نقاط المكافآت الخاصة بك:"</span>, points)
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>🏫 جميع الحقوق محفوظة © مدرسة صويلح الثانوية للبنين | إعداد وإشراف المعلم: <strong>باسم النعيمي</strong> - الصف الأول الثانوي الأكاديمي</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
