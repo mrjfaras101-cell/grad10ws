@@ -1,5 +1,17 @@
+// دالة مساعدة لإرسال الأحداث والوسوم المخصصة إلى Microsoft Clarity
+function trackClarityEvent(eventName, tagKey, tagValue) {
+    if (typeof window.clarity === 'function') {
+        window.clarity('event', eventName);
+        if (tagKey && tagValue !== undefined) {
+            window.clarity('set', tagKey, String(tagValue));
+        }
+    }
+}
+
 // التبديل بين تبويبات أوراق العمل
 function filterWorksheets(target, btnElement) {
+    trackClarityEvent(`tab_${target}`, 'active_worksheet', target);
+
     // تحديث حالة الأزرار
     const buttons = document.querySelectorAll('.tab-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
@@ -54,11 +66,13 @@ function checkAnswers(wsNum) {
     const banner = document.getElementById(`feedback-ws-${wsNum}`);
     banner.style.display = 'block';
     if (correctCount === inputs.length) {
+        trackClarityEvent(`ws_${wsNum}_completed_100`, `ws_${wsNum}_score`, `${correctCount}/${inputs.length}`);
         banner.style.background = '#dcfce7';
         banner.style.color = '#14532d';
         banner.style.border = '1px solid #22c55e';
         banner.innerHTML = `🎉 أحسنت يا بطل! جميع إجاباتك صحيحة (${correctCount} من ${inputs.length}). مشروعك البرمجي جاهز للتشغيل!`;
     } else {
+        trackClarityEvent(`ws_${wsNum}_check_attempt`, `ws_${wsNum}_score`, `${correctCount}/${inputs.length}`);
         banner.style.background = '#fef2f2';
         banner.style.color = '#7f1d1d';
         banner.style.border = '1px solid #ef4444';
@@ -68,6 +82,7 @@ function checkAnswers(wsNum) {
 
 // تعبئة الحل النموذجي تلقائياً داخل الفراغات
 function fillSampleAnswers(wsNum) {
+    trackClarityEvent(`ws_${wsNum}_revealed_solution`, `ws_${wsNum}_used_hint_solution`, 'true');
     const inputs = document.querySelectorAll(`.ws-${wsNum}-input`);
     inputs.forEach(input => {
         const firstAns = input.dataset.ans.split('|')[0];
@@ -85,6 +100,7 @@ function fillSampleAnswers(wsNum) {
 
 // إعادة تعيين الفراغات
 function resetAnswers(wsNum) {
+    trackClarityEvent(`ws_${wsNum}_reset`);
     const inputs = document.querySelectorAll(`.ws-${wsNum}-input`);
     inputs.forEach(input => {
         input.value = '';
@@ -96,6 +112,7 @@ function resetAnswers(wsNum) {
 
 // محاكي شاشة التنفيذ (ورقة عمل 1 - كاشير المقصف بالدينار الأردني)
 function runSim1() {
+    trackClarityEvent('simulator_run_ws1');
     const name = document.getElementById('sim1-name').value.trim() || 'أحمد';
     const price = parseFloat(document.getElementById('sim1-price').value) || 4;
     const qty = parseInt(document.getElementById('sim1-qty').value) || 3;
@@ -120,6 +137,7 @@ function runSim1() {
 
 // محاكي شاشة التنفيذ (ورقة عمل 2 - المرشد الأكاديمي)
 function runSim2() {
+    trackClarityEvent('simulator_run_ws2');
     const g1 = parseInt(document.getElementById('sim2-g1').value) || 92;
     const g2 = parseInt(document.getElementById('sim2-g2').value) || 95;
     const g3 = parseInt(document.getElementById('sim2-g3').value) || 98;
@@ -154,6 +172,7 @@ function runSim2() {
 
 // محاكي شاشة التنفيذ (ورقة عمل 3 - بوابة مدينة الألعاب بالدينار الأردني)
 function runSim3() {
+    trackClarityEvent('simulator_run_ws3');
     const age = parseInt(document.getElementById('sim3-age').value) || 15;
     const height = parseInt(document.getElementById('sim3-height').value) || 160;
     const ticket = parseInt(document.getElementById('sim3-ticket').value) || 104;
@@ -202,3 +221,38 @@ function printWorksheets(includeSolutions) {
     }
     window.print();
 }
+
+// تحميل ذكي لملفات الوورد سواء كانت في المجلد الرئيسي أو داخل مجلد word-files
+async function smartDownload(event, filename) {
+    event.preventDefault();
+    trackClarityEvent('word_file_download', 'downloaded_file', filename);
+    const directUrl = `./${filename}`;
+    const folderUrl = `./word-files/${filename}`;
+    try {
+        const res = await fetch(directUrl, { method: 'HEAD' });
+        if (res.ok) {
+            triggerDownload(directUrl, filename);
+            return false;
+        }
+    } catch (e) {}
+    try {
+        const res2 = await fetch(folderUrl, { method: 'HEAD' });
+        if (res2.ok) {
+            triggerDownload(folderUrl, filename);
+            return false;
+        }
+    } catch (e) {}
+    // في حال لم يرفع المستخدم ملفات الوورد بعد على GitHub، نوجهه للرابط المباشر
+    window.location.href = directUrl;
+    return false;
+}
+
+function triggerDownload(url, filename) {
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
